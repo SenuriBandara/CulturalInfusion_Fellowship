@@ -79,11 +79,25 @@ st.markdown("""
     margin-top: 50px;
 }
 
+/* BUTTON WRAP */
+.apply-wrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
 /* BUTTON */
 .apply-btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+    display: inline-block;
+    background: white;
+    color: #1e3a8a;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.apply-btn:hover {
+    background: #e2e8f0;
 }
 
 </style>
@@ -100,7 +114,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
-# OVERVIEW
+# PROGRAM OVERVIEW
 # =========================
 st.markdown("""
 <div class="overview-box">
@@ -229,17 +243,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
-# APPLY BUTTON (FIXED)
+# APPLY BUTTON (FINAL FIX)
 # =========================
 st.markdown("""
-<div class="apply-btn">
-    <a href="pages/apply.py" style="
-        background:white;
-        padding:12px 25px;
-        border-radius:10px;
-        text-decoration:none;
-        font-weight:600;
-        color:#1e3a8a;
-    ">Apply Now 🚀</a>
+<div class="apply-wrap">
+    <a class="apply-btn" href="apply">Apply Now 🚀</a>
 </div>
 """, unsafe_allow_html=True)
