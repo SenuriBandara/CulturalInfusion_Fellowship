@@ -28,9 +28,10 @@ st.selectbox(
 st.text_area("Tell us about your interest")
 
 st.subheader("Upload CV")
-st.file_uploader("Upload your CV / Resume")
+st.file_uploader("Upload CV")
 
-st.info("Our admissions team will contact you for interview scheduling.")
+st.subheader("Next Step")
+st.info("After submission, our team will contact you for interview scheduling.")
 
 if st.button("Submit Application"):
     st.success("Application submitted successfully!")
