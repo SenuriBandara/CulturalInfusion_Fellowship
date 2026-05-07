@@ -106,12 +106,12 @@ st.markdown("""
     margin-bottom: 20px;
 }
 
-/* CTA SECTION */
+/* CTA BOX */
 .cta {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     color: white;
-    padding: 70px 50px;
-    border-radius: 20px;
+    padding: 80px 50px;
+    border-radius: 22px;
     text-align: center;
     margin-top: 50px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.25);
@@ -120,13 +120,19 @@ st.markdown("""
 .cta h2 {
     font-size: 32px;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .cta p {
     font-size: 16px;
     color: #e2e8f0;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+}
+
+/* CENTER BUTTON INSIDE CTA */
+.cta-button {
+    display: flex;
+    justify-content: center;
 }
 
 /* BUTTON STYLE */
@@ -134,7 +140,7 @@ st.markdown("""
     background: white;
     color: #1e3a8a;
     font-weight: 600;
-    padding: 0.6rem 2rem;
+    padding: 0.7rem 2.2rem;
     border-radius: 10px;
     border: none;
     transition: 0.3s ease;
@@ -278,7 +284,7 @@ Without Accommodation<br>
 """, unsafe_allow_html=True)
 
 # =========================
-# CTA (BUTTON INSIDE BOX)
+# CTA (BUTTON INSIDE BLUE BOX - FINAL)
 # =========================
 st.markdown("""
 <div class="cta">
@@ -287,8 +293,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Button inside CTA section
-col = st.columns([1,2,1])
-with col[1]:
-    if st.button("Apply Now"):
-        st.success("Application received. We'll contact you soon.")
+st.markdown('<div class="cta-button"></div>', unsafe_allow_html=True)
+
+if st.button("Apply Now"):
+    st.success("Application received. We'll contact you soon.")
