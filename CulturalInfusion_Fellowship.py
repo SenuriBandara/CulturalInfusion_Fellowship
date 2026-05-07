@@ -49,9 +49,7 @@ st.markdown("""
     color: #e2e8f0;
 }
 
-/* =========================
-   UPGRADED OVERVIEW DESIGN
-   ========================= */
+/* OVERVIEW */
 .overview-box {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     padding: 60px 50px;
@@ -61,35 +59,29 @@ st.markdown("""
     box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
-/* BIG TITLE */
 .overview-title {
     font-size: 34px;
     font-weight: 800;
     margin-bottom: 10px;
-    letter-spacing: 0.5px;
 }
 
-/* SUB TITLE */
 .overview-subtitle {
     font-size: 18px;
     color: #cbd5f5;
     margin-bottom: 25px;
 }
 
-/* BODY TEXT */
 .overview-text {
     font-size: 16px;
     line-height: 1.9;
     color: #ffffff;
-    max-width: 900px;
 }
 
-/* CARD */
+/* CARDS */
 .card {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     padding: 22px;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     margin-bottom: 18px;
     color: white;
 }
@@ -99,7 +91,6 @@ st.markdown("""
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     padding: 16px;
     border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
     margin-bottom: 12px;
     color: white;
     border-left: 4px solid #60a5fa;
@@ -125,6 +116,13 @@ st.markdown("""
     margin-top: 40px;
 }
 
+/* BUTTON SPACING FIX */
+.apply-section {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -139,18 +137,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
-# PROGRAM OVERVIEW (UPGRADED LAYOUT)
+# PROGRAM OVERVIEW
 # =========================
 st.markdown("""
 <div class="overview-box">
 
-<div class="overview-title">
-Program Overview
-</div>
+<div class="overview-title">Program Overview</div>
 
-<div class="overview-subtitle">
-Building Future Global Leaders
-</div>
+<div class="overview-subtitle">Building Future Global Leaders</div>
 
 <div class="overview-text">
 The Cultural Infusion Fellowship is a globally connected development experience designed to shape future-ready talent.<br><br>
@@ -270,6 +264,11 @@ st.markdown("""
     <p>Join Cultural Infusion Fellowship and unlock global opportunities.</p>
 </div>
 """, unsafe_allow_html=True)
+
+# =========================
+# APPLY BUTTON (SPACED PROPERLY)
+# =========================
+st.markdown('<div class="apply-section"></div>', unsafe_allow_html=True)
 
 if st.button("Apply Now"):
     st.success("Application received. We'll contact you soon.")
