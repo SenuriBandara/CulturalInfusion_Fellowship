@@ -79,19 +79,6 @@ st.markdown("""
     border-radius: 22px;
     text-align: center;
     margin-top: 50px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
-
-.cta h2 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
-
-.cta p {
-    font-size: 16px;
-    color: #e2e8f0;
-    margin-bottom: 35px;
 }
 
 .stButton > button {
@@ -244,5 +231,5 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-if st.button("Apply Now"):
-    st.switch_page("pages/apply.py")
+# ✅ FIXED NAVIGATION (NO ERROR NOW)
+st.page_link("pages/apply.py", label="Apply Now 🚀")
