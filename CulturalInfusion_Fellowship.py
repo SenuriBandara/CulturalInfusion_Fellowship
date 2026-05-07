@@ -10,7 +10,6 @@ st.markdown("""
 
 .block-container {
     padding: 2rem 5rem;
-    max-width: 100%;
 }
 
 /* HERO */
@@ -43,61 +42,26 @@ st.markdown("""
 }
 
 /* CARDS */
-.card {
+.card, .small-card, .price-box, .cta {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
-    padding: 22px;
+    color: white;
     border-radius: 16px;
-    margin-bottom: 18px;
-    color: white;
-}
-
-.small-card {
-    background: linear-gradient(120deg, #0b1220, #1e3a8a);
-    padding: 16px;
-    border-radius: 14px;
-    margin-bottom: 12px;
-    color: white;
-    border-left: 4px solid #60a5fa;
-}
-
-/* PRICE BOX */
-.price-box {
-    background: linear-gradient(120deg, #0b1220, #1e3a8a);
     padding: 20px;
-    border-radius: 16px;
-    text-align: center;
-    color: white;
 }
 
 /* CTA */
 .cta {
-    background: linear-gradient(120deg, #0b1220, #1e3a8a);
-    color: white;
-    padding: 80px 50px;
-    border-radius: 22px;
     text-align: center;
+    padding: 80px 50px;
     margin-top: 50px;
 }
 
-/* BUTTON WRAP */
-.apply-wrap {
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* BUTTON */
-.apply-btn {
-    display: inline-block;
+.apply-btn button {
     background: white;
     color: #1e3a8a;
     padding: 12px 28px;
     border-radius: 10px;
-    text-decoration: none;
     font-weight: 600;
-}
-
-.apply-btn:hover {
-    background: #e2e8f0;
 }
 
 </style>
@@ -114,13 +78,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
-# PROGRAM OVERVIEW
+# OVERVIEW
 # =========================
 st.markdown("""
 <div class="overview-box">
 
 <h2>Program Overview</h2>
-
 <h4>Building Future Global Leaders</h4>
 
 <p>
@@ -147,10 +110,10 @@ with col1:
     st.markdown("""
     <div class="card">
         <b>Professional Development</b><br><br>
-        Structured international internship experience<br>
-        Industry-relevant skill building<br>
-        Career readiness development<br>
-        Leadership capability enhancement
+        Internship experience<br>
+        Skill building<br>
+        Career readiness<br>
+        Leadership growth
     </div>
     """, unsafe_allow_html=True)
 
@@ -158,10 +121,10 @@ with col2:
     st.markdown("""
     <div class="card">
         <b>Global Exposure</b><br><br>
-        Immersive cultural integration<br>
-        International collaboration opportunities<br>
-        Global peer networking<br>
-        Cross-cultural real-world experience
+        Cultural immersion<br>
+        Global networking<br>
+        Collaboration<br>
+        Real-world experience
     </div>
     """, unsafe_allow_html=True)
 
@@ -173,33 +136,33 @@ st.divider()
 st.markdown("## Program Inclusions")
 
 included = [
-("International Internship Placement", "Structured global internship aligned to your career path."),
-("Learning & Development Workshops", "Expert-led sessions for professional growth."),
-("Career Acceleration Support", "Tools to strengthen employability."),
-("Global Talent Network Access", "Connect with international peers and mentors."),
-("1:1 Mentorship & Advisory", "Guidance from experienced professionals."),
-("Professional Branding & CV Development", "Build a strong global-ready profile."),
-("Visa & Documentation Support", "Assistance throughout visa process."),
-("Accommodation Guidance", "Support in finding safe housing."),
-("Arrival & Transition Support", "Smooth onboarding support."),
-("Cultural Immersion Experiences", "Activities for real cultural engagement.")
+("Internship Placement", "Global structured internship experience."),
+("Workshops", "Professional skill development sessions."),
+("Career Support", "Tools to improve employability."),
+("Global Network", "Access to international community."),
+("Mentorship", "1:1 guidance from professionals."),
+("CV Development", "Personal branding support."),
+("Visa Support", "Documentation assistance."),
+("Accommodation", "Housing guidance."),
+("Arrival Support", "Onboarding assistance."),
+("Cultural Activities", "Immersive experiences.")
 ]
 
-cols = st.columns(2)
+col1, col2 = st.columns(2)
 
-for i, (title, desc) in enumerate(included):
-    with cols[i % 2]:
+for i, (t, d) in enumerate(included):
+    with (col1 if i % 2 == 0 else col2):
         st.markdown(f"""
-<div class="small-card">
-<b>{title}</b><br>
-{desc}
-</div>
-""", unsafe_allow_html=True)
+        <div class="small-card">
+        <b>{t}</b><br>
+        {d}
+        </div>
+        """, unsafe_allow_html=True)
 
 st.divider()
 
 # =========================
-# PROGRAM INVESTMENT
+# PRICING
 # =========================
 st.markdown("## Program Investment")
 
@@ -216,24 +179,18 @@ pricing = [
 
 cols = st.columns(4)
 
-for i, (duration, full, without) in enumerate(pricing):
+for i, (d, f, w) in enumerate(pricing):
     with cols[i % 4]:
         st.markdown(f"""
-<div class="price-box">
-
-<b>{duration}</b><br><br>
-
-Full Program<br>
-{full}<br><br>
-
-Without Accommodation<br>
-{without}
-
-</div>
-""", unsafe_allow_html=True)
+        <div class="price-box">
+        <b>{d}</b><br><br>
+        Full: {f}<br><br>
+        Without: {w}
+        </div>
+        """, unsafe_allow_html=True)
 
 # =========================
-# CTA
+# CTA + FIXED NAVIGATION
 # =========================
 st.markdown("""
 <div class="cta">
@@ -242,11 +199,5 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# =========================
-# APPLY BUTTON (FINAL FIX)
-# =========================
-st.markdown("""
-<div class="apply-wrap">
-    <a class="apply-btn" href="apply">Apply Now 🚀</a>
-</div>
-""", unsafe_allow_html=True)
+# ✅ THIS IS THE ONLY WORKING NAVIGATION METHOD
+st.page_link("apply", label="Apply Now 🚀")
