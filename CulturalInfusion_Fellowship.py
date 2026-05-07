@@ -106,21 +106,43 @@ st.markdown("""
     margin-bottom: 20px;
 }
 
-/* CTA */
+/* CTA SECTION */
 .cta {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     color: white;
-    padding: 70px;
+    padding: 70px 50px;
     border-radius: 20px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
-/* BUTTON SPACING FIX */
-.apply-section {
-    margin-top: 60px;
-    margin-bottom: 40px;
-    text-align: center;
+.cta h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    font-size: 16px;
+    color: #e2e8f0;
+    margin-bottom: 30px;
+}
+
+/* BUTTON STYLE */
+.stButton > button {
+    background: white;
+    color: #1e3a8a;
+    font-weight: 600;
+    padding: 0.6rem 2rem;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-3px);
+    background: #e2e8f0;
 }
 
 </style>
@@ -256,7 +278,7 @@ Without Accommodation<br>
 """, unsafe_allow_html=True)
 
 # =========================
-# CTA
+# CTA (BUTTON INSIDE BOX)
 # =========================
 st.markdown("""
 <div class="cta">
@@ -265,10 +287,8 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# =========================
-# APPLY BUTTON (SPACED PROPERLY)
-# =========================
-st.markdown('<div class="apply-section"></div>', unsafe_allow_html=True)
-
-if st.button("Apply Now"):
-    st.success("Application received. We'll contact you soon.")
+# Button inside CTA section
+col = st.columns([1,2,1])
+with col[1]:
+    if st.button("Apply Now"):
+        st.success("Application received. We'll contact you soon.")
