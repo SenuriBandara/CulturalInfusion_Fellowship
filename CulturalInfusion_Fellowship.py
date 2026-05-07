@@ -13,22 +13,6 @@ st.markdown("""
     max-width: 100%;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero, .overview-box, .card, .small-card, .price-box, .cta {
-    animation: fadeUp 0.8s ease-in-out;
-}
-
 /* HERO */
 .hero {
     padding: 90px 40px;
@@ -59,24 +43,6 @@ st.markdown("""
     box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
-.overview-title {
-    font-size: 34px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.overview-subtitle {
-    font-size: 18px;
-    color: #cbd5f5;
-    margin-bottom: 25px;
-}
-
-.overview-text {
-    font-size: 16px;
-    line-height: 1.9;
-    color: #ffffff;
-}
-
 /* CARDS */
 .card {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
@@ -86,7 +52,6 @@ st.markdown("""
     color: white;
 }
 
-/* SMALL CARD */
 .small-card {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     padding: 16px;
@@ -106,7 +71,7 @@ st.markdown("""
     margin-bottom: 20px;
 }
 
-/* CTA BOX */
+/* CTA */
 .cta {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     color: white;
@@ -129,26 +94,12 @@ st.markdown("""
     margin-bottom: 35px;
 }
 
-/* CENTER BUTTON INSIDE CTA */
-.cta-button {
-    display: flex;
-    justify-content: center;
-}
-
-/* BUTTON STYLE */
 .stButton > button {
     background: white;
     color: #1e3a8a;
     font-weight: 600;
     padding: 0.7rem 2.2rem;
     border-radius: 10px;
-    border: none;
-    transition: 0.3s ease;
-}
-
-.stButton > button:hover {
-    transform: translateY(-3px);
-    background: #e2e8f0;
 }
 
 </style>
@@ -170,17 +121,17 @@ st.markdown("""
 st.markdown("""
 <div class="overview-box">
 
-<div class="overview-title">Program Overview</div>
+<h2>Program Overview</h2>
 
-<div class="overview-subtitle">Building Future Global Leaders</div>
+<h4>Building Future Global Leaders</h4>
 
-<div class="overview-text">
+<p>
 The Cultural Infusion Fellowship is a globally connected development experience designed to shape future-ready talent.<br><br>
 
 It blends international exposure, professional development, and cultural immersion into one structured journey.<br><br>
 
 Participants gain real-world experience, build globally relevant skills, and engage with diverse cultures and industries, preparing them for impactful international careers.
-</div>
+</p>
 
 </div>
 """, unsafe_allow_html=True)
@@ -284,7 +235,7 @@ Without Accommodation<br>
 """, unsafe_allow_html=True)
 
 # =========================
-# CTA (BUTTON INSIDE BLUE BOX - FINAL)
+# CTA
 # =========================
 st.markdown("""
 <div class="cta">
@@ -293,7 +244,5 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="cta-button"></div>', unsafe_allow_html=True)
-
 if st.button("Apply Now"):
-    st.success("Application received. We'll contact you soon.")
+    st.switch_page("pages/apply.py")
