@@ -38,6 +38,7 @@ st.markdown("""
     color: white;
     border-radius: 16px;
     padding: 20px;
+    margin-bottom: 15px;
 }
 
 /* CTA */
@@ -47,7 +48,7 @@ st.markdown("""
     margin-top: 50px;
 }
 
-/* APPLY BUTTON */
+/* BUTTON */
 .apply-container {
     text-align: center;
     margin-top: 40px;
@@ -81,11 +82,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
-# OVERVIEW
+# PROGRAM OVERVIEW
 # =========================
 st.markdown("""
 <div class="card">
 <h2>Program Overview</h2>
+
 <p>
 The Cultural Infusion Fellowship is a globally connected development experience designed to shape future-ready talent.<br><br>
 
@@ -99,9 +101,9 @@ Participants gain real-world experience, build globally relevant skills, and eng
 st.divider()
 
 # =========================
-# EXPERIENCE
+# EXPERIENCE PATHWAY
 # =========================
-st.markdown("## Learning & Experience")
+st.markdown("## Learning & Experience Pathway")
 
 col1, col2 = st.columns(2)
 
@@ -109,10 +111,10 @@ with col1:
     st.markdown("""
     <div class="card">
     <b>Professional Development</b><br><br>
-    Internship experience<br>
-    Skill building<br>
+    Structured internship experience<br>
+    Industry skill building<br>
     Career readiness<br>
-    Leadership growth
+    Leadership development
     </div>
     """, unsafe_allow_html=True)
 
@@ -121,11 +123,74 @@ with col2:
     <div class="card">
     <b>Global Exposure</b><br><br>
     Cultural immersion<br>
-    Networking<br>
-    Collaboration<br>
+    International networking<br>
+    Collaboration opportunities<br>
     Real-world experience
     </div>
     """, unsafe_allow_html=True)
+
+st.divider()
+
+# =========================
+# PROGRAM INCLUSIONS
+# =========================
+st.markdown("## Program Inclusions")
+
+included = [
+("Internship Placement", "Structured global internship experience."),
+("Learning Workshops", "Professional development sessions."),
+("Career Support", "Tools to improve employability."),
+("Global Network", "Access to international community."),
+("Mentorship", "1:1 guidance from experts."),
+("CV Development", "Professional branding support."),
+("Visa Support", "Documentation assistance."),
+("Accommodation", "Housing guidance."),
+("Arrival Support", "Onboarding assistance."),
+("Cultural Activities", "Immersive global experiences.")
+]
+
+col1, col2 = st.columns(2)
+
+for i, (t, d) in enumerate(included):
+    with (col1 if i % 2 == 0 else col2):
+        st.markdown(f"""
+        <div class="small-card">
+        <b>{t}</b><br>
+        {d}
+        </div>
+        """, unsafe_allow_html=True)
+
+st.divider()
+
+# =========================
+# PROGRAM INVESTMENT
+# =========================
+st.markdown("## Program Investment")
+
+pricing = [
+("4 Weeks", "9,340 AUD", "5,600 AUD"),
+("6 Weeks", "9,585 AUD", "5,600 AUD"),
+("8 Weeks", "11,440 AUD", "5,600 AUD"),
+("10 Weeks", "13,295 AUD", "5,600 AUD"),
+("12 Weeks", "15,290 AUD", "6,600 AUD"),
+("16 Weeks", "18,730 AUD", "6,600 AUD"),
+("20 Weeks", "21,460 AUD", "6,600 AUD"),
+("24 Weeks", "24,150 AUD", "6,600 AUD"),
+]
+
+cols = st.columns(4)
+
+for i, (d, f, w) in enumerate(pricing):
+    with cols[i % 4]:
+        st.markdown(f"""
+        <div class="price-box">
+        <b>{d}</b><br><br>
+        Full Program<br>
+        {f}<br><br>
+        Without Accommodation<br>
+        {w}
+        </div>
+        """, unsafe_allow_html=True)
 
 st.divider()
 
@@ -139,7 +204,9 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ✅ SAFE NAVIGATION (NO ERRORS EVER)
+# =========================
+# APPLY BUTTON (SAFE FIX)
+# =========================
 st.markdown("""
 <div class="apply-container">
     <a class="apply-btn" href="/apply">Apply Now 🚀</a>
