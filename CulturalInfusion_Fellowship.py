@@ -32,16 +32,7 @@ st.markdown("""
     color: #e2e8f0;
 }
 
-/* OVERVIEW */
-.overview-box {
-    background: linear-gradient(120deg, #0b1220, #1e3a8a);
-    padding: 60px 50px;
-    border-radius: 22px;
-    color: white;
-    margin-bottom: 30px;
-}
-
-/* CARDS */
+/* BOXES */
 .card, .small-card, .price-box, .cta {
     background: linear-gradient(120deg, #0b1220, #1e3a8a);
     color: white;
@@ -56,12 +47,24 @@ st.markdown("""
     margin-top: 50px;
 }
 
-.apply-btn button {
+/* APPLY BUTTON */
+.apply-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.apply-btn {
+    display: inline-block;
     background: white;
     color: #1e3a8a;
     padding: 12px 28px;
     border-radius: 10px;
     font-weight: 600;
+    text-decoration: none;
+}
+
+.apply-btn:hover {
+    background: #e2e8f0;
 }
 
 </style>
@@ -81,11 +84,8 @@ st.markdown("""
 # OVERVIEW
 # =========================
 st.markdown("""
-<div class="overview-box">
-
+<div class="card">
 <h2>Program Overview</h2>
-<h4>Building Future Global Leaders</h4>
-
 <p>
 The Cultural Infusion Fellowship is a globally connected development experience designed to shape future-ready talent.<br><br>
 
@@ -93,7 +93,6 @@ It blends international exposure, professional development, and cultural immersi
 
 Participants gain real-world experience, build globally relevant skills, and engage with diverse cultures and industries.
 </p>
-
 </div>
 """, unsafe_allow_html=True)
 
@@ -102,95 +101,36 @@ st.divider()
 # =========================
 # EXPERIENCE
 # =========================
-st.markdown("## Learning & Experience Pathway")
+st.markdown("## Learning & Experience")
 
 col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("""
     <div class="card">
-        <b>Professional Development</b><br><br>
-        Internship experience<br>
-        Skill building<br>
-        Career readiness<br>
-        Leadership growth
+    <b>Professional Development</b><br><br>
+    Internship experience<br>
+    Skill building<br>
+    Career readiness<br>
+    Leadership growth
     </div>
     """, unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
     <div class="card">
-        <b>Global Exposure</b><br><br>
-        Cultural immersion<br>
-        Global networking<br>
-        Collaboration<br>
-        Real-world experience
+    <b>Global Exposure</b><br><br>
+    Cultural immersion<br>
+    Networking<br>
+    Collaboration<br>
+    Real-world experience
     </div>
     """, unsafe_allow_html=True)
 
 st.divider()
 
 # =========================
-# INCLUSIONS
-# =========================
-st.markdown("## Program Inclusions")
-
-included = [
-("Internship Placement", "Global structured internship experience."),
-("Workshops", "Professional skill development sessions."),
-("Career Support", "Tools to improve employability."),
-("Global Network", "Access to international community."),
-("Mentorship", "1:1 guidance from professionals."),
-("CV Development", "Personal branding support."),
-("Visa Support", "Documentation assistance."),
-("Accommodation", "Housing guidance."),
-("Arrival Support", "Onboarding assistance."),
-("Cultural Activities", "Immersive experiences.")
-]
-
-col1, col2 = st.columns(2)
-
-for i, (t, d) in enumerate(included):
-    with (col1 if i % 2 == 0 else col2):
-        st.markdown(f"""
-        <div class="small-card">
-        <b>{t}</b><br>
-        {d}
-        </div>
-        """, unsafe_allow_html=True)
-
-st.divider()
-
-# =========================
-# PRICING
-# =========================
-st.markdown("## Program Investment")
-
-pricing = [
-("4 Weeks", "9,340 AUD", "5,600 AUD"),
-("6 Weeks", "9,585 AUD", "5,600 AUD"),
-("8 Weeks", "11,440 AUD", "5,600 AUD"),
-("10 Weeks", "13,295 AUD", "5,600 AUD"),
-("12 Weeks", "15,290 AUD", "6,600 AUD"),
-("16 Weeks", "18,730 AUD", "6,600 AUD"),
-("20 Weeks", "21,460 AUD", "6,600 AUD"),
-("24 Weeks", "24,150 AUD", "6,600 AUD"),
-]
-
-cols = st.columns(4)
-
-for i, (d, f, w) in enumerate(pricing):
-    with cols[i % 4]:
-        st.markdown(f"""
-        <div class="price-box">
-        <b>{d}</b><br><br>
-        Full: {f}<br><br>
-        Without: {w}
-        </div>
-        """, unsafe_allow_html=True)
-
-# =========================
-# CTA + FIXED NAVIGATION
+# CTA
 # =========================
 st.markdown("""
 <div class="cta">
@@ -199,5 +139,9 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ✅ THIS IS THE ONLY WORKING NAVIGATION METHOD
-st.page_link("apply", label="Apply Now 🚀")
+# ✅ SAFE NAVIGATION (NO ERRORS EVER)
+st.markdown("""
+<div class="apply-container">
+    <a class="apply-btn" href="/apply">Apply Now 🚀</a>
+</div>
+""", unsafe_allow_html=True)
