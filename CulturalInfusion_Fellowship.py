@@ -103,7 +103,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
-# PROGRAM OVERVIEW
+# OVERVIEW
 # =========================
 st.markdown("""
 <div class="overview-box">
@@ -231,5 +231,5 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ✅ FIXED NAVIGATION (NO ERROR NOW)
-st.page_link("pages/apply.py", label="Apply Now 🚀")
+# ✅ FIXED NAVIGATION (NO ERROR)
+st.page_link("apply", label="Apply Now 🚀")
