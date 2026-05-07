@@ -40,7 +40,6 @@ st.markdown("""
     border-radius: 22px;
     color: white;
     margin-bottom: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
 /* CARDS */
@@ -68,7 +67,6 @@ st.markdown("""
     border-radius: 16px;
     text-align: center;
     color: white;
-    margin-bottom: 20px;
 }
 
 /* CTA */
@@ -81,12 +79,11 @@ st.markdown("""
     margin-top: 50px;
 }
 
-.stButton > button {
-    background: white;
-    color: #1e3a8a;
-    font-weight: 600;
-    padding: 0.7rem 2.2rem;
-    border-radius: 10px;
+/* BUTTON */
+.apply-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 </style>
@@ -117,7 +114,7 @@ The Cultural Infusion Fellowship is a globally connected development experience 
 
 It blends international exposure, professional development, and cultural immersion into one structured journey.<br><br>
 
-Participants gain real-world experience, build globally relevant skills, and engage with diverse cultures and industries, preparing them for impactful international careers.
+Participants gain real-world experience, build globally relevant skills, and engage with diverse cultures and industries.
 </p>
 
 </div>
@@ -231,5 +228,18 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ✅ FIXED NAVIGATION (NO ERROR)
-st.page_link("apply", label="Apply Now 🚀")
+# =========================
+# APPLY BUTTON (FIXED)
+# =========================
+st.markdown("""
+<div class="apply-btn">
+    <a href="pages/apply.py" style="
+        background:white;
+        padding:12px 25px;
+        border-radius:10px;
+        text-decoration:none;
+        font-weight:600;
+        color:#1e3a8a;
+    ">Apply Now 🚀</a>
+</div>
+""", unsafe_allow_html=True)
