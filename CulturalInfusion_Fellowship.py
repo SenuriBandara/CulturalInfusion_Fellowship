@@ -1,185 +1,214 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
 
+st.set_page_config(page_title="Cultural Infusion Fellowship", layout="wide")
 
-# ---------------------------------
-# Page Configuration
-# ---------------------------------
+# =========================
+# CSS
+# =========================
+st.markdown("""
+<style>
 
-st.set_page_config(
-    page_title="Cultural Infusion Internships Dashboard",
-    layout="wide"
-)
+.block-container {
+    padding: 2rem 5rem;
+}
 
+/* HERO */
+.hero {
+    padding: 90px 40px;
+    background: linear-gradient(120deg, #0b1220, #1e3a8a);
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
 
-# ---------------------------------
-# Title
-# ---------------------------------
+.hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+}
 
-st.title("Cultural Infusion Internships Dashboard")
+.hero p {
+    font-size: 20px;
+    color: #e2e8f0;
+}
 
+/* BOXES */
+.card, .small-card, .price-box, .cta {
+    background: linear-gradient(120deg, #0b1220, #1e3a8a);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
 
-# ---------------------------------
-# Load SharePoint Excel Dashboard
-# ---------------------------------
+/* CTA */
+.cta {
+    text-align: center;
+    padding: 80px 50px;
+    margin-top: 50px;
+}
 
-url = "YOUR_SHAREPOINT_EXCEL_LINK"
+/* BUTTON */
+.apply-container {
+    text-align: center;
+    margin-top: 40px;
+}
 
+.apply-btn {
+    display: inline-block;
+    background: white;
+    color: #1e3a8a;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
 
-dashboard = pd.read_excel(
-    url,
-    sheet_name="Dashboard",
-    header=None
-)
+.apply-btn:hover {
+    background: #e2e8f0;
+}
 
+</style>
+""", unsafe_allow_html=True)
 
-# ---------------------------------
-# Extract KPI Data
-# ---------------------------------
+# =========================
+# HERO
+# =========================
+st.markdown("""
+<div class="hero">
+    <h1>Cultural Infusion Fellowship</h1>
+    <p>Where Talent, Opportunity, and Culture Converge</p>
+</div>
+""", unsafe_allow_html=True)
 
-total_leadgen = dashboard.iloc[2,0]
-total_applied = dashboard.iloc[2,1]
-total_interview = dashboard.iloc[2,2]
-total_accepted = dashboard.iloc[2,3]
-total_payment = dashboard.iloc[2,4]
+# =========================
+# PROGRAM OVERVIEW
+# =========================
+st.markdown("""
+<div class="card">
+<h2>Program Overview</h2>
 
+<p>
+The Cultural Infusion Fellowship is a globally connected development experience designed to shape future-ready talent.<br><br>
 
-# ---------------------------------
-# KPI Cards
-# ---------------------------------
+It blends international exposure, professional development, and cultural immersion into one structured journey.<br><br>
 
-st.subheader("Pipeline Overview")
+Participants gain real-world experience, build globally relevant skills, and engage with diverse cultures and industries.
+</p>
+</div>
+""", unsafe_allow_html=True)
 
+st.divider()
 
-col1, col2, col3, col4, col5 = st.columns(5)
+# =========================
+# EXPERIENCE PATHWAY
+# =========================
+st.markdown("## Learning & Experience Pathway")
 
+col1, col2 = st.columns(2)
 
-col1.metric(
-    "Total Leadgen",
-    total_leadgen
-)
+with col1:
+    st.markdown("""
+    <div class="card">
+    <b>Professional Development</b><br><br>
+    Structured internship experience<br>
+    Industry skill building<br>
+    Career readiness<br>
+    Leadership development
+    </div>
+    """, unsafe_allow_html=True)
 
-col2.metric(
-    "Total Applied",
-    total_applied
-)
+with col2:
+    st.markdown("""
+    <div class="card">
+    <b>Global Exposure</b><br><br>
+    Cultural immersion<br>
+    International networking<br>
+    Collaboration opportunities<br>
+    Real-world experience
+    </div>
+    """, unsafe_allow_html=True)
 
-col3.metric(
-    "Interview Done",
-    total_interview
-)
+st.divider()
 
-col4.metric(
-    "Total Accepted",
-    total_accepted
-)
+# =========================
+# PROGRAM INCLUSIONS
+# =========================
+st.markdown("## Program Inclusions")
 
-col5.metric(
-    "Payment Done",
-    total_payment
-)
+included = [
+("Internship Placement", "Structured global internship experience."),
+("Learning Workshops", "Professional development sessions."),
+("Career Support", "Tools to improve employability."),
+("Global Network", "Access to international community."),
+("Mentorship", "1:1 guidance from experts."),
+("CV Development", "Professional branding support."),
+("Visa Support", "Documentation assistance."),
+("Accommodation", "Housing guidance."),
+("Arrival Support", "Onboarding assistance."),
+("Cultural Activities", "Immersive global experiences.")
+]
 
+col1, col2 = st.columns(2)
 
+for i, (t, d) in enumerate(included):
+    with (col1 if i % 2 == 0 else col2):
+        st.markdown(f"""
+        <div class="small-card">
+        <b>{t}</b><br>
+        {d}
+        </div>
+        """, unsafe_allow_html=True)
 
-# ---------------------------------
-# Funnel Chart
-# ---------------------------------
+st.divider()
 
-st.subheader("Internship Pipeline Funnel")
+# =========================
+# PROGRAM INVESTMENT
+# =========================
+st.markdown("## Program Investment")
 
+pricing = [
+("4 Weeks", "9,340 AUD", "5,600 AUD"),
+("6 Weeks", "9,585 AUD", "5,600 AUD"),
+("8 Weeks", "11,440 AUD", "5,600 AUD"),
+("10 Weeks", "13,295 AUD", "5,600 AUD"),
+("12 Weeks", "15,290 AUD", "6,600 AUD"),
+("16 Weeks", "18,730 AUD", "6,600 AUD"),
+("20 Weeks", "21,460 AUD", "6,600 AUD"),
+("24 Weeks", "24,150 AUD", "6,600 AUD"),
+]
 
-funnel_data = pd.DataFrame(
-    {
-        "Stage":[
-            "Leadgen",
-            "Applied",
-            "Interview Done",
-            "Accepted",
-            "Payment Done"
-        ],
+cols = st.columns(4)
 
-        "Count":[
-            total_leadgen,
-            total_applied,
-            total_interview,
-            total_accepted,
-            total_payment
-        ]
-    }
-)
+for i, (d, f, w) in enumerate(pricing):
+    with cols[i % 4]:
+        st.markdown(f"""
+        <div class="price-box">
+        <b>{d}</b><br><br>
+        Full Program<br>
+        {f}<br><br>
+        Without Accommodation<br>
+        {w}
+        </div>
+        """, unsafe_allow_html=True)
 
+st.divider()
 
-fig = px.funnel(
-    funnel_data,
-    x="Count",
-    y="Stage"
-)
+# =========================
+# CTA
+# =========================
+st.markdown("""
+<div class="cta">
+    <h2>Begin Your Global Journey</h2>
+    <p>Join Cultural Infusion Fellowship and unlock global opportunities.</p>
+</div>
+""", unsafe_allow_html=True)
 
-
-st.plotly_chart(
-    fig,
-    use_container_width=True
-)
-
-
-
-# ---------------------------------
-# Conversion Rates
-# ---------------------------------
-
-st.subheader("Conversion Performance")
-
-
-leadgen_applied = dashboard.iloc[18,0]
-applied_interview = dashboard.iloc[18,1]
-interview_accepted = dashboard.iloc[18,2]
-accepted_paid = dashboard.iloc[18,3]
-leadgen_paid = dashboard.iloc[18,4]
-applied_paid = dashboard.iloc[18,5]
-
-
-
-c1,c2,c3,c4,c5,c6 = st.columns(6)
-
-
-c1.metric(
-    "Leadgen → Applied",
-    leadgen_applied
-)
-
-c2.metric(
-    "Applied → Interview",
-    applied_interview
-)
-
-c3.metric(
-    "Interview → Accepted",
-    interview_accepted
-)
-
-c4.metric(
-    "Accepted → Paid",
-    accepted_paid
-)
-
-c5.metric(
-    "Leadgen → Paid",
-    leadgen_paid
-)
-
-c6.metric(
-    "Applied → Paid",
-    applied_paid
-)
-
-
-
-# ---------------------------------
-# Data Preview (Optional)
-# ---------------------------------
-
-with st.expander("View Dashboard Data"):
-    st.dataframe(
-        dashboard
-    )
+# =========================
+# APPLY BUTTON (SAFE FIX)
+# =========================
+st.markdown("""
+<div class="apply-container">
+    <a class="apply-btn" href="/apply">Apply Now 🚀</a>
+</div>
+""", unsafe_allow_html=True)
